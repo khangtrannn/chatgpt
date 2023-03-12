@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { ConversationComponent } from './components/conversation/conversation.component';
 import { QuoteComponent } from './components/quote/quote.component';
 
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { ChatInputComponent } from './components/chat-input/chat-input.component
     AppComponent,
     ChatInputComponent,
     QuoteComponent,
+    ConversationComponent,
   ],
   imports: [
     BrowserModule,

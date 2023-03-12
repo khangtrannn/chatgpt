@@ -1,18 +1,10 @@
 <div class="max-w-4xl mx-auto">
   <div class="container">
     <div class="wrapper overflow-y-scroll">
-      <!-- <ng-container *ngFor="let data of transformedAnswer">
-        <markdown *ngIf="data.type === 'markdown'" [data]="data.content"></markdown>
-        <pre *ngIf="data.type === 'code'"><code [highlight]="data.content"></code></pre>
-      </ng-container>
-
-      <ng-container *ngFor="let data of transformedAnswer">
-        <markdown *ngIf="data.type === 'markdown'" [data]="data.content"></markdown>
-        <pre *ngIf="data.type === 'code'"><code [highlight]="data.content"></code></pre>
-      </ng-container> -->
-      <app-quote></app-quote>
+      <app-quote *ngIf="!conversations.length"></app-quote>
+      <app-conversation *ngIf="conversations.length" [conversations]="conversations" class="block pb-8"></app-conversation>
     </div>
 
-    <app-chat-input></app-chat-input>
+    <app-chat-input (onEnter)="getAnswer($event)"></app-chat-input>
   </div>
 </div>
