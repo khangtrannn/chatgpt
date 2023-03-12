@@ -19,8 +19,9 @@ export class AppComponent {
       content: message,
     });
 
-    this.chatgptService.chatCompletion(message).subscribe((response) => {
+    this.chatgptService.chatCompletion(this.conversations).subscribe((response) => {
       const answer = response.choices[0].message?.content!;
+      console.log(response);
       this.conversations.push({
         role: Role.ASSISTANT,
         content: answer,

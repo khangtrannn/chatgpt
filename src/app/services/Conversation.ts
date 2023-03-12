@@ -1,5 +1,5 @@
 export enum Role {
-  USER, ASSISTANT
+  USER = 'user', ASSISTANT = 'assistant'
 }
 
 export interface Content {

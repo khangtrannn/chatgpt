@@ -8,3 +8,9 @@
     </ng-container>
   </div>
 </ng-container>
+
+<ng-container *ngIf="{ isGettingAnswer: isGettingAnswer$ | async } as data">
+  <div *ngIf="data.isGettingAnswer" class="assistant-message p-4 py-6">
+    Loading...
+  </div>
+</ng-container>
