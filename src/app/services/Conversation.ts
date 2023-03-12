@@ -13,6 +13,7 @@ export interface TransformedAnswer {
 }
 
 export interface Conversation {
+  id: string;
   role: Role;
   content: string;
   transformedAnswer?: TransformedAnswer[];

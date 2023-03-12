@@ -2,7 +2,7 @@
   <div class="container">
     <div class="wrapper overflow-y-scroll">
       <app-quote *ngIf="!conversations.length"></app-quote>
-      <app-conversation *ngIf="conversations.length" [conversations]="conversations" class="block pb-14"></app-conversation>
+      <app-conversation #conversation *ngIf="conversations.length" [conversations]="conversations" class="block pb-14"></app-conversation>
     </div>
 
     <app-chat-input (onEnter)="getAnswer($event)"></app-chat-input>

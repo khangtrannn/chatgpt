@@ -1,7 +1,7 @@
-<ng-container *ngFor="let conversation of conversations">
-  <div *ngIf="conversation.role === Role.USER" class="p-4 py-6">{{ conversation.content }}</div>
+<ng-container *ngFor="let conversation of conversations; trackBy: trackByConversation">
+  <div [id]="conversation.id" *ngIf="conversation.role === Role.USER" class="p-4 py-6 user-message">{{ conversation.content }}</div>
 
-  <div *ngIf="conversation.role === Role.ASSISTANT" class="assistant-message p-4">
+  <div *ngIf="conversation.role === Role.ASSISTANT" class="assistant-message p-4 py-2">
     <ng-container *ngFor="let data of conversation.transformedAnswer">
       <markdown *ngIf="data.type === 'markdown'" [data]="data.content"></markdown>
       <pre *ngIf="data.type === 'code'"><code [highlight]="data.content"></code></pre>
@@ -10,7 +10,7 @@
 </ng-container>
 
 <ng-container *ngIf="{ isGettingAnswer: isGettingAnswer$ | async } as data">
-  <div *ngIf="data.isGettingAnswer" class="assistant-message p-4 py-6">
+  <div *ngIf="data.isGettingAnswer" class="assistant-message p-4">
     Loading...
   </div>
 </ng-container>

@@ -15,4 +15,8 @@ export class ConversationComponent {
   isGettingAnswer$ = this.chatgptService.isGettingAnswer();
 
   constructor(private chatgptService: ChatgptService) {}
+
+  trackByConversation(index: number, conversation: Conversation): string {
+    return conversation.id;
+  }
 }
