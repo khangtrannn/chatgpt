@@ -1,6 +1,10 @@
 <div class="max-w-4xl mx-auto">
-  <ng-container *ngFor="let data of transformedAnswer">
-    <markdown *ngIf="data.type === 'markdown'" [data]="data.content"></markdown>
-    <pre *ngIf="data.type === 'code'"><code [highlight]="data.content"></code></pre>
-  </ng-container>
+  <div class="overflow-y-scroll">
+    <ng-container *ngFor="let data of transformedAnswer">
+      <markdown *ngIf="data.type === 'markdown'" [data]="data.content"></markdown>
+      <pre *ngIf="data.type === 'code'"><code [highlight]="data.content"></code></pre>
+    </ng-container>
+  </div>
+
+  <app-chat-input></app-chat-input>
 </div>

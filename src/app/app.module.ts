@@ -7,10 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
+import { ChatInputComponent } from './components/chat-input/chat-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ChatInputComponent
   ],
   imports: [
     BrowserModule,
