@@ -1,1 +1,16 @@
 <textarea (keyup.enter)="getAnswer()" [(ngModel)]="message"></textarea>
+
+<!-- <pre><code [highlight]="response"></code></pre> -->
+
+<ng-container *ngFor="let item of transformChatAnswer()">
+  <ng-container *ngIf="!item.includes('```')">
+    {{ item }}
+  </ng-container>
+  <ng-container *ngIf="item.includes('```')">
+    <pre><code [highlight]="item"></code></pre>
+  </ng-container>
+</ng-container>
+
+<!-- {{ transformCodeBlocks(response) }} -->
+
+{{ answer | json }}
