@@ -45,3 +45,22 @@ body {
   background-color: transparent;
   border-radius: 9999px;
 }
+
+.loading-dots {
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+  100% {
+    content: ".";
+  }
+}
