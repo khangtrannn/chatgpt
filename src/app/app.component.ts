@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateChatCompletionResponse } from './../types/openai.d';
 import { ChatgptService } from './services/chatgpt.service';
+import { QuoteService } from './services/quote.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,9 @@ export class AppComponent implements OnInit {
 
   transformedAnswer: { type: string; content: string }[] = [];
 
-  constructor(private chatgptService: ChatgptService) {}
+  quote$ = this.quoteService.getRandomQuote();
+
+  constructor(private chatgptService: ChatgptService, private quoteService: QuoteService) {}
 
   ngOnInit(): void {
     this.transformChatAnswer();
