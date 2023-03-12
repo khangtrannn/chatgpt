@@ -1,18 +1,20 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { QuoteComponent } from './components/quote/quote.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { ChatInputComponent } from './components/chat-input/chat-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatInputComponent
+    ChatInputComponent,
+    QuoteComponent,
   ],
   imports: [
     BrowserModule,
