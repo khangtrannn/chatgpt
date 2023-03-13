@@ -14,16 +14,19 @@ export class ChatInputComponent {
   onEnterHandle(): void {
     this.onEnter.emit(this.message);
     this.message = '';
-    this.resize();
+    setTimeout(() =>  this.resize());
   }
 
   resize(): void {
     this.messageRef!.nativeElement.style.height = 'auto';
-    this.messageRef!.nativeElement.style.height = (this.messageRef!.nativeElement.scrollHeight - 8) + 'px';
+
+    const height = this.messageRef!.nativeElement.scrollHeight - 8;
+    this.messageRef!.nativeElement.style.height = height + 'px';
+    this.messageRef!.nativeElement.style.overflow = height > 200 ? 'auto' : 'hidden';
   }
 
   onKeydownHandle(event: KeyboardEvent): void {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
 
       if (this.message.trim().length) {
