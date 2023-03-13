@@ -1,6 +1,6 @@
-<div class="max-w-4xl w-full fixed h-24 bottom-0 bg-[#343541]">
+<div class="max-w-4xl w-full fixed bottom-5 bg-[#343541]">
   <div class="wrapper flex mt-5 justify-center py-2 text-white shadow-[0_0_15px_rgba(0,0,0,0.10)] rounded-md">
-    <textarea #messageRef [(ngModel)]="message" (keyup.enter)="onEnterHandle()" rows="1" class="w-full max-h-52 text-base leading-6 text-white resize-none outline-none border-0 pl-4 pr-7 border-transparent bg-transparent"></textarea>
+    <textarea #messageRef (input)="resize()" [(ngModel)]="message" (keydown)="onKeydownHandle($event)" rows="1" class="w-full h-6 max-h-52 text-base leading-6 text-white resize-none outline-none border-0 pl-4 pr-7 border-transparent bg-transparent"></textarea>
     <button class="p-1 right-1.5 rounded-md border-transparent bg-transparent text-gray-500 bottom-1.5">
       <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
     </button>

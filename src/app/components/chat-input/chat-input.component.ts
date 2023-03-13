@@ -14,5 +14,21 @@ export class ChatInputComponent {
   onEnterHandle(): void {
     this.onEnter.emit(this.message);
     this.message = '';
+    this.resize();
+  }
+
+  resize(): void {
+    this.messageRef!.nativeElement.style.height = 'auto';
+    this.messageRef!.nativeElement.style.height = (this.messageRef!.nativeElement.scrollHeight - 8) + 'px';
+  }
+
+  onKeydownHandle(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+
+      if (this.message.trim().length) {
+        this.onEnterHandle();
+      }
+    }
   }
 }
