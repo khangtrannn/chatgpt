@@ -1,6 +1,6 @@
-<div class="max-w-4xl mx-auto">
+<div class="max-w-4xl mx-auto pb-8">
   <div class="container">
-    <div class="wrapper overflow-y-scroll">
+    <div class="wrapper">
       <app-quote *ngIf="!conversations.length"></app-quote>
       <app-conversation #conversation *ngIf="conversations.length" [conversations]="conversations" class="block pb-14"></app-conversation>
     </div>

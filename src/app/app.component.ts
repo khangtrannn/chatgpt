@@ -27,7 +27,7 @@ export class AppComponent {
       content: message,
     });
 
-    this.adjustViewToLastQuestion();
+    this.adjustViewToLastQuestion(0);
 
     this.chatgptService.chatCompletion(this.conversations).subscribe((response) => {
       const answer = response.choices[0].message?.content!;
@@ -38,14 +38,14 @@ export class AppComponent {
         transformedAnswer: this.transformChatAnswer(answer),
       });
 
-      this.adjustViewToLastQuestion();
+      this.adjustViewToLastQuestion(200);
     });
   }
 
-  private adjustViewToLastQuestion(): void {
+  private adjustViewToLastQuestion(timeout: number): void {
     setTimeout(() => {
       document.getElementById(this.lastQuestionId)!.scrollIntoView({ behavior: 'smooth' });
-    });
+    }, timeout);
   }
 
   private transformChatAnswer(answer: string): TransformedAnswer[] {

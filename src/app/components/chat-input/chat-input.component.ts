@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-chat-input',
@@ -8,6 +8,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ChatInputComponent {
   @Output() onEnter = new EventEmitter<string>();
   message = '';
+
+  @ViewChild('messageRef') messageRef: ElementRef<HTMLTextAreaElement> | undefined;
 
   onEnterHandle(): void {
     this.onEnter.emit(this.message);
